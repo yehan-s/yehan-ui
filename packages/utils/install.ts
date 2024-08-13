@@ -8,7 +8,6 @@ export function makeInstaller(components: Plugin[]) {
     each(components, (c) => {
       app.use(c);
     });
-
   return install;
 }
 

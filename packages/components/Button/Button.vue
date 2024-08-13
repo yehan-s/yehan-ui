@@ -4,6 +4,8 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: 'ErButton',
+  name: 'YeButton',
 })
+
+console.log('Button component loaded')
 </script>
