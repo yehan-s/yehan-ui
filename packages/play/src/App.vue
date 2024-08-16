@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
-  <ye-button></ye-button>
+  <ye-button tag="button" tpye="primary" size="small">test</ye-button>
 </template>
 
 <style scoped>
