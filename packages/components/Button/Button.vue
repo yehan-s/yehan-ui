@@ -1,7 +1,9 @@
 <template>
+  <!-- type: 如果tag是button，nativeType才生效，否则忽略type属性 -->
   <component
     :is="props.tag"
     ref="_ref"
+    class="ye-button"
     :type="tag === 'button' ? nativeType : void 0"
     :disabled="disabled || loading ? true : void 0"
     :class="{
@@ -34,3 +36,7 @@ const slots = defineSlots()
 
 const _ref = ref<HTMLButtonElement>()
 </script>
+
+<style scoped>
+@import './style.css';
+</style>

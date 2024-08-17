@@ -1,1 +1,67 @@
-@import './reset.css'
+@import './reset.css';
+
+:root {
+  /* colors */
+  --ye-color-white: #ffffff;
+  --ye-color-black: #000000;
+  --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
+  --ye-bg-color: #ffffff;
+  --ye-bg-color-page: #f2f3f5;
+  --ye-bg-color-overlay: #ffffff;
+  --ye-text-color-primary: #303133;
+  --ye-text-color-regular: #606266;
+  --ye-text-color-secondary: #909399;
+  --ye-text-color-placeholder: #a8abb2;
+  --ye-text-color-disabled: #c0c4cc;
+  --ye-border-color: #dcdfe6;
+  --ye-border-color-light: #e4e7ed;
+  --ye-border-color-lighter: #ebeef5;
+  --ye-border-color-extra-light: #f2f6fc;
+  --ye-border-color-dark: #d4d7de;
+  --ye-border-color-darker: #cdd0d6;
+  --ye-fill-color: #f0f2f5;
+  --ye-fill-color-light: #f5f7fa;
+  --ye-fill-color-lighter: #fafafa;
+  --ye-fill-color-extra-light: #fafcff;
+  --ye-fill-color-dark: #ebedf0;
+  --ye-fill-color-darker: #e6e8eb;
+  --ye-fill-color-blank: #ffffff;
+  
+  @each $val, $color in var(--colors) {
+    --ye-color-$(val): $(color);
+    @for $i from 3 to 9 {
+      --ye-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
+    }
+    --ye-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  /* border */
+  --ye-border-width: 1px;
+  --ye-border-style: solid;
+  --ye-border-color-hover: var(--ye-text-color-disabled);
+  --ye-border: var(--ye-border-width) var(--ye-border-style) var(--ye-border-color);
+  --ye-border-radius-base: 4px;
+  --ye-border-radius-small: 2px;
+  --ye-border-radius-round: 20px;
+  --ye-border-radius-circle: 100%;
+
+  /*font*/
+  --ye-font-size-extra-large: 20px;
+  --ye-font-size-large: 18px;
+  --ye-font-size-medium: 16px;
+  --ye-font-size-base: 14px;
+  --ye-font-size-small: 13px;
+  --ye-font-size-extra-small: 12px;
+  --ye-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+  --ye-font-weight-primary: 500;
+
+  /*disabled*/
+  --ye-disabled-bg-color: var(--ye-fill-color-light);
+  --ye-disabled-text-color: var(--ye-text-color-placeholder);
+  --ye-disabled-border-color: var(--ye-border-color-light);
+
+  /*animation*/
+  --ye-transition-duration: 0.4s;
+  --ye-transition-duration-fast: 0.2s;
+}
