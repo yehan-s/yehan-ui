@@ -1,8 +1,10 @@
 <template>
   <!-- type: 如果tag是button，nativeType才生效，否则忽略type属性 -->
+  <!-- props 自动展开，不需要前缀 -->
   <component
-    :is="props.tag"
+    :is="tag"
     ref="_ref"
+    :autofocus="autofocus"
     class="ye-button"
     :type="tag === 'button' ? nativeType : void 0"
     :disabled="disabled || loading ? true : void 0"
@@ -20,14 +22,32 @@
         useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e)
     "
   >
+    <template v-if="loading">
+      <slot name="loading">
+        <Ye-icon
+          class="loading-icon"
+          :icon="loadingIcon ?? 'spinner'"
+          :style="iconStyle"
+          size="1x"
+          spin
+        />
+      </slot>
+    </template>
+    <Ye-icon
+      v-if="icon && !loading"
+      :icon="icon"
+      :style="iconStyle"
+      size="1x"
+    />
     <slot></slot>
   </component>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types'
 import { throttle } from 'lodash-es'
+import { YeIcon } from 'toy-element'
 
 defineOptions({
   name: 'YeButton',
@@ -36,11 +56,15 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
   nativeType: 'button',
   useThrottle: true,
-  throttleDuration: 300,
+  throttleDuration: 500,
 })
 const emits = defineEmits<ButtonEmits>()
 
 const slots = defineSlots()
+
+const iconStyle = computed(() => ({
+  marginRight: slots.default ? '6px' : '0px',
+}))
 
 const _ref = ref<HTMLButtonElement>()
 
