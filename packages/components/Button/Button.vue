@@ -44,9 +44,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types'
 import { throttle } from 'lodash-es'
+import { BUTTON_GROUP_CTX_KEY } from './contants.ts'
 import { YeIcon } from 'toy-element'
 
 defineOptions({
@@ -61,15 +62,24 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 const emits = defineEmits<ButtonEmits>()
 
 const slots = defineSlots()
+// 第二值是默认值
+const ctx = inject(BUTTON_GROUP_CTX_KEY, void 0)
+const _ref = ref<HTMLButtonElement>()
+const size = computed(() => ctx?.size ?? props.size ?? '')
+const type = computed(() => ctx?.type ?? props.type ?? '')
+// 相当于给了一个默认 false，当有 button 的值为true 时会单独生效
+const disabled = computed(() => ctx?.disabled || props?.disabled || false)
 
 const iconStyle = computed(() => ({
   marginRight: slots.default ? '6px' : '0px',
 }))
 
-const _ref = ref<HTMLButtonElement>()
-
 const handleBtnClick = (e: MouseEvent) => emits('click', e)
-const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration)
+const handleBtnClickThrottle = throttle(
+  handleBtnClick,
+  props.throttleDuration,
+  { trailing: false }
+)
 
 defineExpose<ButtonInstance>({
   ref: _ref,

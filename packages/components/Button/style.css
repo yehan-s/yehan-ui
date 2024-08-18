@@ -1,6 +1,6 @@
-/* .ye-button-group {
+.ye-button-group {
   --ye-button-group-border-color: var(--ye-border-color-lighter);
-} */
+}
 .ye-button {
   --ye-button-font-weight: var(--ye-font-weight-primary);
   --ye-button-border-color: var(--ye-border-color);
@@ -151,7 +151,7 @@
   }
 }
 
-/* .ye-button-group {
+.ye-button-group {
   display: inline-block;
   vertical-align: middle;
 
@@ -196,4 +196,4 @@
       }
     }
   }
-} */
+}
