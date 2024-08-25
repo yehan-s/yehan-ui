@@ -1,0 +1,16 @@
+.ye-icon {
+  --ye-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--ye-icon-color);
+  font-size: inherit;
+}
+
+@each $val in primary, info, success, warning, danger {
+  .ye-icon--$(val) {
+    --ye-icon-color: var(--ye-color-$(val));
+  }
+}

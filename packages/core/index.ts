@@ -8,5 +8,6 @@ import "@toy-element/theme/index.css";
 library.add(fas);
 const installer = makeInstaller(components);
 
-export * from "@toy-element/components";
+// 影响打包后指向，用相对路径
+export * from "../components";
 export default installer;

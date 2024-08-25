@@ -1,6 +1,6 @@
+<!-- type: 如果tag是button，nativeType才生效，否则忽略type属性 -->
+<!-- props 自动展开，不需要前缀 -->
 <template>
-  <!-- type: 如果tag是button，nativeType才生效，否则忽略type属性 -->
-  <!-- props 自动展开，不需要前缀 -->
   <component
     :is="tag"
     ref="_ref"
@@ -22,6 +22,7 @@
         useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e)
     "
   >
+  <!-- 为loading则隐藏icon -->
     <template v-if="loading">
       <slot name="loading">
         <Ye-icon
@@ -48,7 +49,7 @@ import { computed, inject, ref } from 'vue'
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types'
 import { throttle } from 'lodash-es'
 import { BUTTON_GROUP_CTX_KEY } from './contants.ts'
-import { YeIcon } from 'toy-element'
+import YeIcon  from '../Icon/Icon.vue'
 
 defineOptions({
   name: 'YeButton',
