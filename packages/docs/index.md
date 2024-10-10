@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "Toy-Element"
+  name: "ye-element"
   text: "高仿 ElementPlus 组件库"
   tagline: My great project tagline
   actions:

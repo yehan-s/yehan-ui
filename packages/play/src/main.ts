@@ -1,6 +1,6 @@
-import { createApp } from "vue"
-import App from "./App.vue"
-import ToyElement from "toy-element"
-import 'toy-element/dist/index.css'
+import { createApp } from 'vue'
+import App from './App.vue'
+import YeElement from 'ye-element'
+import 'ye-element/dist/index.css'
 
-createApp(App).use(ToyElement).mount("#app")
+createApp(App).use(YeElement).mount('#app')

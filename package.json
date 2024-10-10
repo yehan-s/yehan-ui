@@ -1,14 +1,14 @@
 {
-  "name": "@toy-element/workspace",
+  "name": "@ye-element/workspace",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --filter @toy-element/play dev",
-    "story": "pnpm --filter @toy-element/play storybook",
-    "docs:build": "pnpm --filter @toy-element/docs build",
-    "test": "pnpm --filter @toy-element/components test",
-    "build": "pnpm --filter toy-element build"
+    "dev": "pnpm --filter @ye-element/play dev",
+    "story": "pnpm --filter @ye-element/play storybook",
+    "docs:build": "pnpm --filter @ye-element/docs build",
+    "test": "pnpm --filter @ye-element/components test",
+    "build": "pnpm --filter ye-element build"
   },
   "keywords": [],
   "author": "",
@@ -39,11 +39,11 @@
     "vue-tsc": "^1.8.27"
   },
   "dependencies": {
-    "@toy-element/hooks": "workspace:*",
-    "@toy-element/theme": "workspace:*",
-    "@toy-element/utils": "workspace:*",
+    "@ye-element/hooks": "workspace:*",
+    "@ye-element/theme": "workspace:*",
+    "@ye-element/utils": "workspace:*",
     "lodash-es": "^4.17.21",
-    "toy-element": "workspace:*",
+    "ye-element": "workspace:*",
     "vue": "^3.4.19"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "toy-element",
+  "name": "ye-element",
   "version": "1.0.0",
   "description": "Components library by Vue3 + TS",
   "type": "module",
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "vite-plugin-dts": "^3.9.1",
-    "@toy-element/components": "workspace:*"
+    "@ye-element/components": "workspace:*"
   },
   "peerDependencies": {
     "vue": "^3.4.19"
