@@ -1,14 +1,14 @@
 {
-  "name": "@ye-element/workspace",
+  "name": "@yehan-ui/workspace",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --filter @ye-element/play dev",
-    "story": "pnpm --filter @ye-element/play storybook",
-    "docs:build": "pnpm --filter @ye-element/docs build",
-    "test": "pnpm --filter @ye-element/components test",
-    "build": "pnpm --filter ye-element build"
+    "dev": "pnpm --filter @yehan-ui/play dev",
+    "story": "pnpm --filter @yehan-ui/play storybook",
+    "docs:build": "pnpm --filter @yehan-ui/docs build",
+    "test": "pnpm --filter @yehan-ui/components test",
+    "build": "pnpm --filter yehan-ui build"
   },
   "keywords": [],
   "author": "",
@@ -39,11 +39,11 @@
     "vue-tsc": "^1.8.27"
   },
   "dependencies": {
-    "@ye-element/hooks": "workspace:*",
-    "@ye-element/theme": "workspace:*",
-    "@ye-element/utils": "workspace:*",
+    "@yehan-ui/hooks": "workspace:*",
+    "@yehan-ui/theme": "workspace:*",
+    "@yehan-ui/utils": "workspace:*",
     "lodash-es": "^4.17.21",
-    "ye-element": "workspace:*",
+    "yehan-ui": "workspace:*",
     "vue": "^3.4.19"
   }
 }

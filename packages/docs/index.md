@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "ye-element"
+  name: "yehan-ui"
   text: "高仿 ElementPlus 组件库"
   tagline: My great project tagline
   actions:

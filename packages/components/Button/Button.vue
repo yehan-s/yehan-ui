@@ -1,14 +1,8 @@
 <!-- type: 如果tag是button，nativeType才生效，否则忽略type属性 -->
 <!-- props 自动展开，不需要前缀 -->
 <template>
-  <component
-    :is="tag"
-    ref="_ref"
-    :autofocus="autofocus"
-    class="ye-button"
-    :type="tag === 'button' ? nativeType : void 0"
-    :disabled="disabled || loading ? true : void 0"
-    :class="{
+  <component :is="tag" ref="_ref" :autofocus="autofocus" class="ye-button"
+    :type="tag === 'button' ? nativeType : void 0" :disabled="disabled || loading ? true : void 0" :class="{
       [`ye-button--${type}`]: type,
       [`ye-button--${size}`]: size,
       'is-plain': plain,
@@ -16,30 +10,16 @@
       'is-circle': circle,
       'is-disabled': disabled,
       'is-loading': loading,
-    }"
-    @click="
-      (e: MouseEvent) =>
-        useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e)
-    "
-  >
-  <!-- 为loading则隐藏icon -->
+    }" @click="(e: MouseEvent) =>
+      useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e)
+      ">
+    <!-- 为loading则隐藏icon -->
     <template v-if="loading">
       <slot name="loading">
-        <Ye-icon
-          class="loading-icon"
-          :icon="loadingIcon ?? 'spinner'"
-          :style="iconStyle"
-          size="1x"
-          spin
-        />
+        <Ye-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" :style="iconStyle" size="1x" spin />
       </slot>
     </template>
-    <Ye-icon
-      v-if="icon && !loading"
-      :icon="icon"
-      :style="iconStyle"
-      size="1x"
-    />
+    <Ye-icon v-if="icon && !loading" :icon="icon" :style="iconStyle" size="1x" />
     <slot></slot>
   </component>
 </template>
@@ -49,7 +29,7 @@ import { computed, inject, ref } from 'vue'
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types'
 import { throttle } from 'lodash-es'
 import { BUTTON_GROUP_CTX_KEY } from './contants.ts'
-import YeIcon  from '../Icon/Icon.vue'
+import YeIcon from '../Icon/Icon.vue'
 
 defineOptions({
   name: 'YeButton',

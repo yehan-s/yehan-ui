@@ -2,13 +2,14 @@ import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3'
 import { fn, within, userEvent, expect, clearAllMocks } from '@storybook/test'
 import { set } from 'lodash-es'
 
-import { YeButton, YeButtonGroup } from 'ye-element'
+import { YeButton, YeButtonGroup } from 'yehan-ui'
+import type { ConcreteComponent } from 'vue'
 
 type Story = StoryObj<typeof YeButton> & { argTypes?: ArgTypes }
 
 const meta: Meta<typeof YeButton> = {
   title: 'Example/Button',
-  component: YeButton,
+  component: YeButton as ConcreteComponent,
   tags: ['autodocs'],
   argTypes: {
     type: {
@@ -68,7 +69,7 @@ export const Default: Story & { args: { content: string } } = {
     type: 'primary',
     content: 'Button',
   },
-  render: (args) => ({
+  render: (args: any) => ({
     components: { YeButton },
     setup() {
       return { args }
@@ -76,7 +77,7 @@ export const Default: Story & { args: { content: string } } = {
     template: container(`<ye-button data-testid="story-test-btn" v-bind="args">{{args.content}}</ye-button>`),
   }),
 
-  play: async ({ canvasElement, args, step }) => {
+  play: async ({ canvasElement, args, step }: { canvasElement: HTMLElement; args: any; step: any }) => {
     const canvas = within(canvasElement)
     const btn = canvas.getByTestId('story-test-btn')
 
@@ -126,7 +127,7 @@ export const Autofocus: Story & { args: { content: string } } = {
     content: 'Button',
     autofocus: true,
   },
-  render: (args) => ({
+  render: (args: any) => ({
     components: { YeButton },
     setup() {
       return { args }
@@ -138,7 +139,7 @@ export const Autofocus: Story & { args: { content: string } } = {
       `
     ),
   }),
-  play: async ({ args }) => {
+  play: async ({ args }: { args: any }) => {
     await userEvent.keyboard('{enter}')
 
     expect(args.onClick).toHaveBeenCalledOnce()
@@ -150,7 +151,7 @@ export const Circle: Story = {
   args: {
     icon: 'search',
   },
-  render: (args) => ({
+  render: (args: any) => ({
     components: { YeButton },
     setup() {
       return { args }
@@ -159,7 +160,7 @@ export const Circle: Story = {
       <ye-button circle v-bind="args"/>
     `),
   }),
-  play: async ({ canvasElement, args, step }) => {
+  play: async ({ canvasElement, args, step }: { canvasElement: HTMLElement; args: any; step: any }) => {
     const canvas = within(canvasElement)
     await step('click button', async () => {
       await userEvent.click(canvas.getByRole('button'))
@@ -196,7 +197,7 @@ export const Group: Story & { args: { content1: string; content2: string } } = {
     content1: 'Button1',
     content2: 'Button2',
   },
-  render: (args) => ({
+  render: (args: any) => ({
     components: { YeButton, YeButtonGroup },
     setup() {
       return { args }
@@ -208,7 +209,7 @@ export const Group: Story & { args: { content1: string; content2: string } } = {
        </ye-button-group>
     `),
   }),
-  play: async ({ canvasElement, args, step }) => {
+  play: async ({ canvasElement, args, step }: { canvasElement: HTMLElement; args: any; step: any }) => {
     const canvas = within(canvasElement)
     await step('click btn1', async () => {
       await userEvent.click(canvas.getByText('Button1'))

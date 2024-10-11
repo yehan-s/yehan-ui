@@ -8,13 +8,13 @@ importers:
 
   .:
     dependencies:
-      '@ye-element/hooks':
+      '@yehan-ui/hooks':
         specifier: workspace:*
         version: link:packages/hooks
-      '@ye-element/theme':
+      '@yehan-ui/theme':
         specifier: workspace:*
         version: link:packages/theme
-      '@ye-element/utils':
+      '@yehan-ui/utils':
         specifier: workspace:*
         version: link:packages/utils
       lodash-es:
@@ -23,7 +23,7 @@ importers:
       vue:
         specifier: ^3.4.19
         version: 3.5.11(typescript@5.6.3)
-      ye-element:
+      yehan-ui:
         specifier: workspace:*
         version: link:packages/core
     devDependencies:
@@ -130,7 +130,7 @@ importers:
         specifier: ^3.4.19
         version: 3.5.11(typescript@5.6.3)
     devDependencies:
-      '@ye-element/components':
+      '@yehan-ui/components':
         specifier: workspace:*
         version: link:../components
       vite-plugin-dts:

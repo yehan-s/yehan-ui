@@ -2,9 +2,9 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "ye-element",
+  title: "yehan-ui",
   description: "高仿 ElementPlus 组件库",
-  base: "/ye-element/",
+  base: "/yehan-ui/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

@@ -1,4 +1,4 @@
-import 'ye-element/dist/index.css'
+import 'yehan-ui/dist/index.css'
 
 /** @type { import('@storybook/vue3').Preview } */
 const preview = {
