@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+  # 手动触发
+  workflow_dispatch:
+
 jobs:
   test:
     name: Run Lint and Test
@@ -17,7 +20,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
 
-      - name: Install pnpm 
+      - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Install dependencies
