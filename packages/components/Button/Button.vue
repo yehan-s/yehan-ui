@@ -16,10 +16,10 @@
     <!-- 为loading则隐藏icon -->
     <template v-if="loading">
       <slot name="loading">
-        <Ye-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" :style="iconStyle" size="1x" spin />
+        <ye-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" :style="iconStyle" size="1x" spin />
       </slot>
     </template>
-    <Ye-icon v-if="icon && !loading" :icon="icon" :style="iconStyle" size="1x" />
+    <ye-icon v-if="icon && !loading" :icon="icon" :style="iconStyle" size="1x" />
     <slot></slot>
   </component>
 </template>
