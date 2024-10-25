@@ -187,7 +187,11 @@ importers:
 
   packages/theme: {}
 
-  packages/utils: {}
+  packages/utils:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.11.20
+        version: 20.16.11
 
 packages:
 
